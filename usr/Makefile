@@ -69,9 +69,9 @@ iscsistart: $(ISCSI_LIB_SRCS) $(INITIATOR_SRCS) $(FW_BOOT_SRCS) \
 		iscsistart.o statics.o
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ -lrt $(ISCSI_LIB)
 clean:
-	rm -f *.o $(PROGRAMS) .depend $(LIBSYS)
+	$(RM) *.o $(PROGRAMS) .depend $(LIBSYS)
 
 depend:
-	gcc $(CFLAGS) -M `ls *.c` > .depend
+	$(CC) $(CFLAGS) -M `ls *.c` > .depend
 
 -include .depend
